@@ -56,8 +56,8 @@
           </div>
           <ul class="posts" tal:repeat="t n.messages">
             <li class="post">
-              <span class="postid">Post ID: <div tal:replace="t.id"/></span>
-              <span class="post-content" tal:content="t.content"></span>
+              <span class="postid">Post ID: ${t.id}</span>
+              <span class="post-content">${t.content}</span>
             </li>
           </ul>
           <a tal:attributes="href n.id">Expand Thread</a>

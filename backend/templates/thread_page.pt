@@ -40,13 +40,13 @@
     <div id="page">
       <a href="/">&lt; Home</a>
       <div class="thread-title">
-        <span>Title: <div tal:replace="thread.title"/></span>
-        <span>ID: <div tal:replace="thread.id"/></span>
+        <span>Title: ${thread.title}</span>
+        <span>ID: ${thread.id}</span>
       </div>
       <ul class="posts">
         <li class="post" tal:repeat="t thread.messages">
-          <span class="postid">Post ID: <div tal:replace="t.id"/></span>
-          <span class="post-content" tal:content="t.content"></span>
+          <span class="postid">Post ID: ${t.id}</span>
+          <span class="post-content"> ${t.content}</span>
         </li>
       </ul>
       <div class="new-post">

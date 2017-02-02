@@ -17,6 +17,7 @@ class Thread:
 
     def __init__(self, title, id, *, last_bump=None, messages=None):
         self.title = title
+        print(self.title)
         self.last_bump = last_bump if last_bump is not None else time.time()
         self.id = id
         self.messages_ = messages if messages is not None else []

@@ -1,5 +1,4 @@
 import asyncio
-import cgi
 import json
 import os
 
@@ -47,7 +46,7 @@ async def new_thread(request):
     content = request.form.get("content")
     title = request.form.get("title")
     if (title and content) and ((0 < len(content) <= 50) and (0 < len(title) <= 200)):
-        return server.add_thread(cgi.escape(title), cgi.escape(content))
+        return server.add_thread(title, content)
     return html(fail_page.render(reason="Invalid content or title"), status=404)
 
 
@@ -56,7 +55,7 @@ async def new_post(request, thread):
     content = request.form.get("content")
 
     if content and (0 < len(content) <= 200):
-        return server.add_post(thread, cgi.escape(content))
+        return server.add_post(thread, content)
     return html(fail_page.render(reason="Invalid content"), status=404)
 
 
