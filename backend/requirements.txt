@@ -1,2 +1,2 @@
-sanic
-chameleon
+sanic>=0.3.0
+chameleon>=3.0
