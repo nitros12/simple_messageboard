@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rip</title>
+  </head>
+  <body>
+    <a href="/">&lt; Home</a>
+    Well Shite: <div tal:replace="reason"/>
+  </body>
+</html>

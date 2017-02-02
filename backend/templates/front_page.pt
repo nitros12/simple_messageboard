@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<style>
+  #page {
+    background: beige;
+    padding: 10px;
+  }
+  .threads {
+    list-style: none;
+  }
+  .thread {
+    background-color: aliceblue;
+    padding: 5px 15px;
+    border: blue 1px solid;
+    margin-bottom: 3px;
+    max-width: 470px;
+  }
+  .posts {
+    list-style: none;
+  }
+  .post {
+    background-color: aliceblue;
+    padding: 5px 10px;
+    border: blue 1px solid;
+    margin-bottom: 3px;
+    max-width: 470px;
+  }
+  .post-content {
+    display: block;
+    padding: 0 20px;
+    word-wrap: break-word;
+  }
+  .postid {
+    padding-left: 3px;
+  }
+  .new-thread {
+    display: inline-block;
+    padding: 10px;
+    background-color: cadetblue;
+  }
+  .new-thread * {
+    padding: 3px;
+  }
+</style>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wew Lad</title>
+  </head>
+  <body>
+    <div id="page">
+      <ul class="threads">
+        <li class="thread" tal:repeat="n threads">
+          <div class="thread-title">
+            <span>Title: <div tal:replace="n.title"/></span>
+            <span>ID: <div tal:replace="n.id"/></span>
+          </div>
+          <ul class="posts" tal:repeat="t n.messages">
+            <li class="post">
+              <span class="postid">Post ID: <div tal:replace="t.id"/></span>
+              <span class="post-content" tal:content="t.content"></span>
+            </li>
+          </ul>
+          <a tal:attributes="href n.id">Expand Thread</a>
+        </li>
+      </ul>
+      <div class="new-thread">
+        <form action="api/new_thread" method="post">
+          Title:<br>
+          <input type="text" name="title"><br>
+          Text:<br>
+          <input type="text" name="content"><br>
+          <input type="submit" value="post">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
