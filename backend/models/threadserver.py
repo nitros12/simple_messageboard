@@ -65,4 +65,4 @@ class ThreadServer:
     @property
     def front_page(self):
         """Returns dict of front page view"""
-        return [{"title": i.title, "bump": i.last_bump, "id": i.id, "messages": i.first_3} for i in self.threads.values()]
+        return [{"title": i.title, "bump": i.last_bump, "id": i.id, "messages": i.first_3} for i in sorted(self.threads.values(), key=lambda x: x.last_bump)[::-1]]
